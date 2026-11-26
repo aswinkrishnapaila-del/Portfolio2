@@ -3,7 +3,7 @@ import { ArrowUpRight, Plus } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router'
 
-import { credentials, projects, services, site } from '../../data/site'
+import { asset, credentials, projects, services, site } from '../../data/site'
 import { Lines, Magnetic, Parallax, Reveal } from '../components/motion'
 import { WorkCard } from '../components/WorkCard'
 import { cx } from '../lib/cx'
@@ -61,7 +61,7 @@ export function Home() {
       <section className="mx-auto max-w-[1400px] px-5 pt-32 sm:px-8 sm:pt-44">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
           <Reveal>
-            <Parallax src="/images/about.jpg" alt="A laptop and a notebook on a desk" className="aspect-[3/4] max-w-[460px] rounded-image" strength={6} />
+            <Parallax src={asset('/images/about.jpg')} alt="A laptop and a notebook on a desk" className="aspect-[3/4] max-w-[460px] rounded-image" strength={6} />
           </Reveal>
           <div className="flex flex-col justify-center">
             <Lines

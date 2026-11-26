@@ -1,6 +1,6 @@
 // Strips files the Sites uploader refuses (hidden files and source maps)
 // from the build output, so `deploy.json` can point straight at dist/.
-import { readdirSync, rmSync, statSync } from 'node:fs'
+import { copyFileSync, readdirSync, rmSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -15,4 +15,12 @@ function clean(dir) {
   }
 }
 
-clean(fileURLToPath(new URL('../dist', import.meta.url)))
+const dist = fileURLToPath(new URL('../dist', import.meta.url))
+
+clean(dist)
+
+// GitHub Pages has no SPA rewrite, so unknown paths get this copy of index.html
+// and the client router renders the right page from the real URL.
+if (process.env.GITHUB_PAGES) {
+  copyFileSync(join(dist, 'index.html'), join(dist, '404.html'))
+}

@@ -1,7 +1,7 @@
 import { ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router'
 
-import { certifications, education, honors, site, skills } from '../../data/site'
+import { asset, certifications, education, honors, site, skills } from '../../data/site'
 import { Lines, Parallax, Reveal } from '../components/motion'
 
 export function About() {
@@ -10,7 +10,7 @@ export function About() {
       <Lines as="h1" className="font-display text-balance text-[clamp(44px,7.5vw,112px)]" lines={['Student, developer,', 'and a builder of', 'useful things']} />
       <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-24">
         <Reveal>
-          <Parallax src="/images/about.jpg" alt="A laptop, a phone and a notebook on a desk" className="aspect-[3/4] rounded-image" strength={6} />
+          <Parallax src={asset('/images/about.jpg')} alt="A laptop, a phone and a notebook on a desk" className="aspect-[3/4] rounded-image" strength={6} />
           <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[14px]">
             {site.socials.map((s) => (
               <li key={s.label}>

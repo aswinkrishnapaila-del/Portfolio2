@@ -1,5 +1,8 @@
 // Everything about you lives here. The pages read from this file.
 
+/** Public files live under the deploy base, which is /Portfolio2/ on GitHub Pages. */
+export const asset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
+
 export const site = {
   name: 'Paila Aswin Krishna',
   shortName: 'Aswin Krishna',
@@ -48,7 +51,7 @@ export const projects: Project[] = [
     client: 'Personal project',
     category: 'Mobile app',
     year: '2026',
-    cover: '/images/lasthope.webp',
+    cover: asset('/images/lasthope.webp'),
     tint: '#2a1111',
     summary:
       'A Flutter app that turns a phone into an emergency response system: one tap sends the message, starts the calls, shares the location and sounds the alarm.',
@@ -72,7 +75,7 @@ export const projects: Project[] = [
     client: 'Personal project',
     category: 'AI product',
     year: '2026',
-    cover: '/images/resuscan.webp',
+    cover: asset('/images/resuscan.webp'),
     tint: '#141024',
     summary:
       'A full-stack career tool that scores a résumé against a job description, rewrites it with AI and exports an ATS-friendly PDF.',
